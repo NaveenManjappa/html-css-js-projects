@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .board {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f4f5f7;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .column-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #e2e4e9;
+            border-radius: 3px;
+        }
+
+        .task {
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .task:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .open { border-left: 3px solid #ff5722; }
+        .in-progress { border-left: 3px solid #ffc107; }
+        .completed { border-left: 3px solid #4caf50; }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <div class="column">
+            <div class="column-header">Open</div>
+            <div id="open-tasks"></div>
+        </div>
+        <div class="column">
+            <div class="column-header">In Progress</div>
+            <div id="in-progress-tasks"></div>
+        </div>
+        <div class="column">
+            <div class="column-header">Completed</div>
+            <div id="completed-tasks"></div>
+        </div>
+    </div>
+
+    <script>
+        // Sample tasks data
+        let tasks = [
+            { id: 1, title: "Design homepage", status: "open" },
+            { id: 2, title: "Create login form", status: "in-progress" },
+            { id: 3, title: "Setup database", status: "completed" },
+            { id: 4, title: "Write documentation", status: "open" }
+        ];
+
+        // Function to move task to next status
+        function moveTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                switch (task.status) {
+                    case 'open':
+                        task.status = 'in-progress';
+                        break;
+                    case 'in-progress':
+                        task.status = 'completed';
+                        break;
+                    case 'completed':
+                        return; // No next status
+                }
+                renderTasks();
+            }
+        }
+
+        // Function to create task element
+        function createTaskElement(task) {
+            const div = document.createElement('div');
+            div.className = `task ${task.status}`;
+            div.textContent = task.title;
+            div.onclick = () => moveTask(task.id);
+            return div;
+        }
+
+        // Function to render all tasks
+        function renderTasks() {
+            // Clear all columns
+            document.getElementById('open-tasks').innerHTML = '';
+            document.getElementById('in-progress-tasks').innerHTML = '';
+            document.getElementById('completed-tasks').innerHTML = '';
+
+            // Render tasks in appropriate columns
+            tasks.forEach(task => {
+                const taskElement = createTaskElement(task);
+                switch (task.status) {
+                    case 'open':
+                        document.getElementById('open-tasks').appendChild(taskElement);
+                        break;
+                    case 'in-progress':
+                        document.getElementById('in-progress-tasks').appendChild(taskElement);
+                        break;
+                    case 'completed':
+                        document.getElementById('completed-tasks').appendChild(taskElement);
+                        break;
+                }
+            });
+        }
+
+        // Initial render
+        renderTasks();
+    </script>
+</body>
+</html>
