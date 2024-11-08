@@ -1,6 +1,8 @@
-const tasks = [
- 
-];
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+function saveToStorage(tasks) {
+  localStorage.setItem('tasks',JSON.stringify(tasks));
+}
 
 function updateTask(id) {
   const task = tasks.find(task => task.id === id);
@@ -13,8 +15,10 @@ function updateTask(id) {
       task.status = 'completed';
       break;
     case 'completed':
-      return;
+      task.status = 'open';
+      break;;
   }
+  saveToStorage(tasks);
 
   renderTasks();
 }
@@ -49,15 +53,18 @@ function renderTasks() {
 
 };
 
-document.querySelector('.js-input')
-  .addEventListener('keydown',(event) => {
+const textEl = document.querySelector('.js-input');
+textEl.addEventListener('keydown',(event) => {
     
-    if(event.key === 'Enter') {
+    if(event.key === 'Enter' && event.target.value) {
       tasks.push({
         id:crypto.randomUUID(),
         title:event.target.value,
         status:'open'
       });
+
+      saveToStorage(tasks);
+      textEl.value='';
       renderTasks();
     }
   });
