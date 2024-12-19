@@ -13,7 +13,7 @@
 
 :root {
   --bg-color:#191F36;
-  --snd-bf-color:#262B40;
+  --snd-bg-color:#262B40;
   --text-color:#ffff;
   --main-color:#59B2F4;
 }
@@ -113,4 +113,47 @@ span {
   100% {
     transform: translateY(0);
   }
+}
+
+.home-content p {
+  font-size: 1.6rem;
+}
+
+.social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background: transparent;
+  border: 0.2rem solid var(--main-color);
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--main-color);  
+  transition: .5s ease;
+  margin-bottom: 1rem;
+}
+
+.social-media a:hover {
+  background-color: var(--main-color);
+  color: var(--snd-bg-color);
+  box-shadow:0 0 1rem var(--main-color) ;
+  
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background: var(--main-color);
+  border-radius: 4rem;
+  box-shadow: 0 0 1rem var(--main-color);
+  font-size: 1.6rem;
+  color: var(--text-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  transition: 0.5s ease;
+}
+
+.btn:hover {
+  box-shadow: none;
 }
