@@ -30,32 +30,34 @@ body {
 .wrapper {
   position: relative;
   z-index: 10;
-  margin: 0 auto;
-  height: 100vh;
+
   max-width: 80rem;
   display: flex;
-  justify-content: center;
+
   align-items: center;
   text-align: center;
   flex-direction: column;
+  margin-inline: auto;
+  padding-inline: 7rem;
+  padding-block: 3rem;
 }
 
 .movies {
   font-weight: 800;
   color: transparent;
-  background-image: linear-gradient(90deg, #D6C7FF, #AB8BFF);
+  background-image: linear-gradient(90deg, #d6c7ff, #ab8bff);
   background-clip: text;
 }
 
 h1 {
-  font-size: 7rem;
+  font-size: 6rem;
 }
 .search {
   padding: 2rem;
   width: 100%;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   margin-inline: auto;
-  
+
   display: flex;
   outline-style: none;
 }
@@ -67,18 +69,20 @@ h1 {
 .search input {
   width: 100%;
   padding: 1.5rem 2rem;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   display: inline;
   outline-style: none;
   background-color: transparent;
-  color:oklch(0.928 0.006 264.531);
+  color: oklch(0.928 0.006 264.531);
   border: 0;
   padding: 2rem 2rem;
   font-size: 2rem;
   line-height: 1.5;
 }
-
-.trending h2, .all-movies h2 {
+.trending {
+}
+.trending h2,
+.all-movies h2 {
   font-size: 4rem;
   line-height: 2;
   color: #fff;
@@ -91,42 +95,179 @@ h1 {
   overflow-y: auto;
   scrollbar-width: none;
   flex-direction: row;
+  width: 100%;
 }
 
 .trending li {
   display: flex;
   min-width: 18rem;
   align-items: center;
-  
 }
 
 .trending img {
-  height: 20rem;
-  width: 15rem;
+  height: 16rem;
+  width: 12rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-left: -2rem;
 }
 
 .trending p {
- font-size: 19rem;
- -webkit-text-stroke: 5px rgba(206,206,251,0.5);
- text-wrap: nowrap;
- color: transparent;
+  font-size: 19rem;
+  -webkit-text-stroke: 5px rgba(206, 206, 251, 0.5);
+  text-wrap: nowrap;
+  color: transparent;
+}
+
+.all-movies {
+  margin-top: 10rem;
+}
+
+.all-movies h2 {
+  text-align: center;
 }
 
 .all-movies ul {
+  margin: 0 auto;
+  max-width: 113rem;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
+  justify-items: center;
+  align-items: center;
 }
 
 .movie-card {
-
+  border-radius: 1rem;
+  background-color: #0f0d23;
+  padding: 1.75rem;
 }
 
 .movie-card img {
   height: auto;
   width: 100%;
+  align-self: center;
+  border-radius: 0.5rem;
 }
 
 .movie-card-content {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
+.movie-card-content h3 {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.content {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.rating {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating p {
+  font-size: 1.75rem;
+  line-height: 1.5;
+  gap: 0.5rem;
+}
+
+content span {
+  font-size: 1.2rem;
+  color: #9ca4ab;
+}
+
+.lang,
+.year {
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #9ca4ab;
+}
+
+@media screen and (max-width: 428px) {
+  .all-movies ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search {
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .search input {
+    width: 90%;
+    font-size: 1.5rem;
+  }
+  .trending {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .all-movies ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .all-movies ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trending {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .all-movies ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .search {
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .search input {
+    width: 90%;
+    font-size: 1.5rem;
+  }
+
+  .trending {
+    width: 100%;
+  }
+}
+
+/* @media screen and (max-width: 1024px) {
+  .all-movies ul {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 768px) {
+  .all-movies ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .trending {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .all-movies ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+} */
