@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="nav-brand">Your Name</span>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle theme">☀️</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <button class="back-to-top" aria-label="Back to top">↑</button>
+        
+        <header id="top">
+            <div class="profile">
+                <img src="portfolio.jpg" alt="Your Name" class="profile-photo">
+                <div class="header-text">
+                    <h1>Your Name</h1>
+                    <p class="subtitle">I am a <span class="expertise-wrapper"><span class="expertise"></span></span></p>
+                </div>
+            </div>
+        </header>
+
+        <section class="about" id="about">
+            <h2>About Me</h2>
+            <p>Add a brief introduction about yourself here.</p>
+        </section>
+
+        <section class="skills" id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Front End</h3>
+                    <div class="skill-cards">
+                        <div class="skill-card" data-skill="HTML5"><span>HTML5</span></div>
+                        <div class="skill-card" data-skill="CSS3"><span>CSS3</span></div>
+                        <div class="skill-card" data-skill="JavaScript"><span>JavaScript</span></div>
+                        <div class="skill-card" data-skill="React"><span>React</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Back End</h3>
+                    <div class="skill-cards">
+                        <div class="skill-card" data-skill="Node.js"><span>Node.js</span></div>
+                        <div class="skill-card" data-skill="Express"><span>Express</span></div>
+                        <div class="skill-card" data-skill="Python"><span>Python</span></div>
+                        <div class="skill-card" data-skill="MongoDB"><span>MongoDB</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Others</h3>
+                    <div class="skill-cards">
+                        <div class="skill-card" data-skill="Git"><span>Git</span></div>
+                        <div class="skill-card" data-skill="Docker"><span>Docker</span></div>
+                        <div class="skill-card" data-skill="AWS"><span>AWS</span></div>
+                        <div class="skill-card" data-skill="Supply Chain"><span>Supply Chain</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience" id="experience">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Job Title</h3>
+                        <span class="date">2020 - Present</span>
+                        <p>Company Name</p>
+                        <p>Description of responsibilities and achievements</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Previous Job Title</h3>
+                        <span class="date">2017 - 2020</span>
+                        <p>Previous Company</p>
+                        <p>Description of responsibilities and achievements</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects" id="projects">
+            <h2>Portfolio Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3>Project Title 1</h3>
+                    <p>Brief description of the project and technologies used.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>Project Title 2</h3>
+                    <p>Brief description of the project and technologies used.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-container">
+                <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p>Phone: (123) 456-7890</p>
+                <p>LinkedIn: <a href="#">linkedin.com/in/your-profile</a></p>
+                <p>GitHub: <a href="#">github.com/your-username</a></p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
