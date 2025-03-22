@@ -183,3 +183,8 @@ img {
 .show-menu {
   bottom: var(--header-height);
 }
+
+/* Active Menu Link */
+.active-link {
+  color:var(--title-color)
+}
