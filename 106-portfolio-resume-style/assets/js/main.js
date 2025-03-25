@@ -57,3 +57,32 @@ function scrollTop() {
 }
 
 window.addEventListener('scroll',scrollTop);
+
+// Dark Light Theme //
+const themeButton = document.getElementById('theme-button');
+const darkTheme = 'dark-theme';
+const iconTheme = 'bx-sun';
+
+// Previoulsy selected theme
+const selectedTheme = localStorage.getItem('selected-theme');
+const selectedIcon = localStorage.getItem('selected-icon');
+
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light' ;
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx-moon' : 'bx-sun';
+
+// Validate if user has set a theme already
+if(selectedTheme){
+  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+  themeButton.classList[selectedIcon === 'bx-moon' ? 'add' : 'remove'](iconTheme);
+}
+
+//Activate / Deactivate theme manually with the button
+themeButton.addEventListener('click',() => {
+  // Add or remove dark/icon theme
+  document.body.classList.toggle(darkTheme);
+  themeButton.classList.toggle(iconTheme);
+
+  //save the theme
+  localStorage.setItem('selected-theme',getCurrentTheme());
+  localStorage.setItem('selected-icon',getCurrentIcon());
+});
