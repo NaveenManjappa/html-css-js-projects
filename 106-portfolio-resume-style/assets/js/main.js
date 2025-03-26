@@ -86,3 +86,43 @@ themeButton.addEventListener('click',() => {
   localStorage.setItem('selected-theme',getCurrentTheme());
   localStorage.setItem('selected-icon',getCurrentIcon());
 });
+
+
+// Reduce the size and print on A4 sheet //
+function scaleCv() {
+  document.body.classList.add('scale-cv');
+}
+
+// Remove the size when download is complete
+function removeScale() {
+  document.body.classList.remove('scale-cv');
+}
+
+
+//Generate PDF
+let areaCv = document.getElementById('area-cv');
+let resumeButton = document.getElementById('resume-button');
+
+//Html2pdf options
+let opt = {
+  margin:0,
+  filename:'NaveenManjappa.pdf',
+  Image: { type: 'jpeg',quality: 0.98 },
+  html2canvas: { scale: 4},
+  jsPDF: {format:'a4',orientation:'portrait'}
+}
+
+function generateResume() {
+  html2pdf(areaCv,opt);
+}
+//Button click for Generate pdf
+resumeButton.addEventListener('click',() => {
+  scaleCv();
+  
+  generateResume();
+
+  setTimeout(() => {
+    removeScale();
+  }, 5000);
+
+});
