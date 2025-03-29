@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  --body-color:#f5d6eb;
-  --nav-color:#3945e7;
+  --body-color:#e9e7e8;
+  --nav-color:#515cf0;
   --font-color:#fff;
+  --search-text:#200f0f;
+  --search-bar:#f7f7f7;
 }
 
 * {
@@ -28,6 +30,8 @@ body.dark {
   --body-color:#351d4b;
   --nav-color:#121529;
   --font-color:#FFF7D6;
+  --search-text:#1a0033;
+  --search-bar:#f0e6ff;
 }
 
 nav {
@@ -105,17 +109,20 @@ nav {
 }
 
 .sidebar__theme,
-.sidebar__search {
+.sidebar__search__toggle,
+.sidebar__login {
   height: 4rem;
   width: 4rem;  
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 .5rem;
+  position: relative;
 }
 
 .sidebar__theme i,
-.sidebar__search i {
+.sidebar__search__toggle i,
+.sidebar__login i {
   position: absolute;
   color: var(--font-color);
   font-size: 2.2rem;
@@ -138,9 +145,81 @@ nav {
   pointer-events: none;
 }
 
-.sidebar__search i.cancel {
+.sidebar__search__toggle i.cancel {
   opacity: 0;
   pointer-events: none;
+}
+
+.sidebar__search__toggle.active i.cancel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar__search__toggle.active i.search {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Search box */
+
+.sidebar__search {
+  position:relative;
+}
+
+.sidebar__search__field  {
+  position: absolute;
+  bottom: -8.5rem;
+  right: 0.5rem;
+  height: 5rem;
+  width: 30rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--nav-color);
+  padding: 0.3rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 0.5rem 0.5rem rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar__search__toggle.active ~ .sidebar__search__field {
+  opacity: 1;
+  pointer-events: auto;
+  bottom: -7.5rem;
+}
+
+.sidebar__search__field::before {
+  content: '';
+  position: absolute;
+  height: 1.2rem;
+  width: 1.2rem;
+  background-color: var(--nav-color);
+  right: 1.4rem;
+  top:-0.4rem;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.sidebar__search__field input {
+  height: 100%;
+  width: 100%;
+  padding: 0 4.5rem 0 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: .4rem;
+  color: var(--search-text);
+  font-size: 1.4rem;
+  font-weight: 400;
+  background-color: var(--search-bar);
+}
+
+.sidebar__search__field i {
+  position: absolute;
+  color: var(--nav-color);
+  right: 1.5rem;
+  font-size: 2.2rem;
+  cursor: pointer;
 }
 
 
