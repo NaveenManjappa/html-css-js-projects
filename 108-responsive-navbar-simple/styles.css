@@ -24,6 +24,12 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+body.dark {
+  --body-color:#351d4b;
+  --nav-color:#121529;
+  --font-color:#FFF7D6;
+}
+
 nav {
   position: fixed;
   width: 100%;
@@ -62,6 +68,7 @@ nav {
 .nav__item {
   list-style-type: none;
   margin: 0 1rem;
+  position: relative;
 }
 
 .nav__link {
@@ -75,14 +82,65 @@ nav {
 
 .nav__link::before {
   content: '';
-  height: .6rem;
-  width: .6rem;
-  border-radius: 50%;
-  background-color: #ffff;
+  height: .2rem;
+  width: calc(100% - 2rem);
+  /* border-radius: 50%; */
+  background: linear-gradient(to right, #fd03cb, #f10798);
   position: absolute;
   bottom:0;
-  left: 50%;
+  /* left: 50%; 
+  transform: translateX(50%);
+  */
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
+.nav__item:hover a::before {
+  opacity: 1;
+}
+
+.sidebar {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar__theme,
+.sidebar__search {
+  height: 4rem;
+  width: 4rem;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 .5rem;
+}
+
+.sidebar__theme i,
+.sidebar__search i {
+  position: absolute;
+  color: var(--font-color);
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar__theme i.sun {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar__theme.active i.sun {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar__theme.active i.moon {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar__search i.cancel {
+  opacity: 0;
+  pointer-events: none;
+}
 
 
