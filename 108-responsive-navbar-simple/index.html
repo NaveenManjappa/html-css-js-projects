@@ -1,63 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="styles.css">
-  <title>Simple Responsive navbar</title>
-</head>
-<body>
-  <nav>
-    <div class="nav__bar">
-      <span class="nav__logo">
-        <a href="">Naveen</a>
-      </span>
-      <div class="nav__menu">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="#" class="nav__link">About </a>
-          </li>
-          <li class="nav__item">
-            <a href="#" class="nav__link">Experience</a>
-          </li>
-          <li class="nav__item">
-            <a href="#" class="nav__link">Skills</a>
-          </li>
-          <li class="nav__item">
-            <a href="#" class="nav__link">Projects</a>
-          </li>
-          <li class="nav__item">
-            <a href="#" class="nav__link">Contact</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="sidebar">
-        <div class="sidebar__theme">
-          <i class="bx bx-moon moon"></i>
-          <i class="bx bx-sun sun"></i>
-        </div>
-
-        <div class="sidebar__search">
-          <div class="sidebar__search__toggle">
-            <i class="bx bx-x cancel"></i>
-            <i class="bx bx-search search"></i>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Simple Responsive navbar</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__bar">
+        <i class="bx bx-menu sidebarOpen"></i>
+        <span class="nav__logo">
+          <a href="">Naveen</a>
+        </span>
+        <div class="nav__menu">
+          <div class="nav__toggle__logo">
+            <span class="nav__logo">
+              <a href="">Naveen</a>
+            </span>
+            <i class="bx bx-x sidebarClose"></i>
           </div>
-            <div class="sidebar__search__field">
-              <input type="text" placeholder="Search">
-              <i class="bx bx-search search"></i>
-            </div>    
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">About </a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Experience</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Skills</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Projects</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Contact</a>
+            </li>
+          </ul>
         </div>
-        <div class="sidebar__login">
-          <i class="bx bx-user"></i>
+
+        <div class="sidebar">
+          <div class="sidebar__theme">
+            <i class="bx bx-moon moon"></i>
+            <i class="bx bx-sun sun"></i>
+          </div>
+
+          <div class="sidebar__search">
+            <div class="sidebar__search__toggle">
+              <i class="bx bx-x cancel"></i>
+              <i class="bx bx-search search"></i>
+            </div>
+            <div class="sidebar__search__field">
+              <input type="text" placeholder="Search" />
+              <i class="bx bx-search search"></i>
+            </div>
+          </div>
+
+          <div class="sidebar__login">
+            <i class="bx bx-user"></i>
+          </div>
         </div>
       </div>
-
-      
-
-    </div>
-  </nav>
-  <script src="main.js"></script>
-</body>
+    </nav>
+    <script src="main.js"></script>
+  </body>
 </html>

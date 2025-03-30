@@ -1,37 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --body-color:#e9e7e8;
-  --nav-color:#515cf0;
-  --font-color:#fff;
-  --search-text:#200f0f;
-  --search-bar:#f7f7f7;
+  --body-color: #e9e7e8;
+  --nav-color: #515cf0;
+  --font-color: #fff;
+  --search-text: #200f0f;
+  --search-bar: #f7f7f7;
+  --sidenav-bar: #121529;
 }
 
 * {
   margin: 0;
   border: 0;
   box-sizing: border-box;
- 
 }
 
 html {
   font-size: 62.5%;
-  
 }
 
 body {
   height: 100vh;
-  background-color: var(--body-color);  
+  background-color: var(--body-color);
   font-family: "Poppins", sans-serif;
 }
 
 body.dark {
-  --body-color:#351d4b;
-  --nav-color:#121529;
-  --font-color:#FFF7D6;
-  --search-text:#1a0033;
-  --search-bar:#f0e6ff;
+  --body-color: #351d4b;
+  --nav-color: #121529;
+  --font-color: #fff7d6;
+  --search-text: #1a0033;
+  --search-bar: #f0e6ff;
 }
 
 nav {
@@ -39,8 +38,9 @@ nav {
   width: 100%;
   top: 0;
   left: 0;
-  height:7rem;
+  height: 7rem;
   background-color: var(--nav-color);
+  z-index: 100;
 }
 
 .nav__bar {
@@ -48,15 +48,23 @@ nav {
   max-width: 1000px;
   width: 100%;
   height: 100%;
-  background-color: var(--nav-color);
+  background-color: var(--nav-color); 
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.nav__logo a {
+.nav__bar .sidebarOpen {
+  color: var(--font-color);
+  font-size: 2.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.nav__logo  a{
   color: var(--font-color);
   text-decoration: none;
   font-size: 2.5rem;
@@ -66,7 +74,7 @@ nav {
 .nav__list {
   display: flex;
   align-items: center;
-  justify-content: space-between;  
+  justify-content: space-between;
 }
 
 .nav__item {
@@ -85,13 +93,13 @@ nav {
 }
 
 .nav__link::before {
-  content: '';
-  height: .2rem;
+  content: "";
+  height: 0.2rem;
   width: calc(100% - 2rem);
   /* border-radius: 50%; */
   background: linear-gradient(to right, #fd03cb, #f10798);
   position: absolute;
-  bottom:0;
+  bottom: 0;
   /* left: 50%; 
   transform: translateX(50%);
   */
@@ -103,6 +111,10 @@ nav {
   opacity: 1;
 }
 
+.nav__toggle__logo {
+  display: none;
+}
+
 .sidebar {
   display: flex;
   align-items: center;
@@ -112,11 +124,11 @@ nav {
 .sidebar__search__toggle,
 .sidebar__login {
   height: 4rem;
-  width: 4rem;  
+  width: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
   position: relative;
 }
 
@@ -163,10 +175,10 @@ nav {
 /* Search box */
 
 .sidebar__search {
-  position:relative;
+  position: relative;
 }
 
-.sidebar__search__field  {
+.sidebar__search__field {
   position: absolute;
   bottom: -8.5rem;
   right: 0.5rem;
@@ -177,7 +189,7 @@ nav {
   background-color: var(--nav-color);
   padding: 0.3rem;
   border-radius: 0.6rem;
-  box-shadow: 0 0.5rem 0.5rem rgba(0,0,0,0.1);
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
@@ -190,13 +202,13 @@ nav {
 }
 
 .sidebar__search__field::before {
-  content: '';
+  content: "";
   position: absolute;
   height: 1.2rem;
   width: 1.2rem;
   background-color: var(--nav-color);
   right: 1.4rem;
-  top:-0.4rem;
+  top: -0.4rem;
   transform: rotate(45deg);
   z-index: -1;
 }
@@ -207,7 +219,7 @@ nav {
   padding: 0 4.5rem 0 1.5rem;
   border: none;
   outline: none;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   color: var(--search-text);
   font-size: 1.4rem;
   font-weight: 400;
@@ -222,4 +234,49 @@ nav {
   cursor: pointer;
 }
 
+/* Media Queries */
+@media screen and (max-width: 790px) {
+  .nav__bar .sidebarOpen {
+    display: block;
+    
+  }
+  .nav__menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: 32rem;
+    background-color: var(--sidenav-bar);
+    padding: 2rem;
+    z-index: 100;
+    transition: all 0.3s ease;
+  }
 
+  nav.active .nav__menu {
+    left: 0;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    padding-top: 6rem;
+  }
+
+  .nav__link {
+    display: block;
+    margin-top: 2rem;
+  }
+
+  .nav__toggle__logo {
+    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sidebarClose {
+    color: var(--font-color);
+    font-size: 2.4rem;
+    cursor: pointer;
+  }
+}
