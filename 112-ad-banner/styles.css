@@ -1,0 +1,60 @@
+* {
+  
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.promo-banner {
+  background-color: #ff6600;
+  
+  
+}
+.promo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.banner-desc span {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+  
+}
+
+.countdown-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-buy {
+  padding: 15px 20px;
+  background-color: rgb(254,255,52);
+  border: none;
+  font-size: 20px;
+  border-radius: 50px;
+
+}
+
+.btn-close {
+  cursor: pointer;
+}
